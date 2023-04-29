@@ -1,21 +1,19 @@
 'use client'
-import React, { ReactNode } from 'react'
-import {ThemeProvider} from 'next-themes'
-import {SessionProvider} from 'next-auth/react'
-type Props = {children:ReactNode}
 
-const Provider = ({children}:Props) => {
+import { SessionProvider } from 'next-auth/react'
+import { ThemeProvider } from 'next-themes'
+import type { FC, ReactNode } from 'react'
 
-  console.log('render');
-  
+interface ProvidersProps {
+  children: ReactNode
+}
+
+const Providers: FC<ProvidersProps> = ({ children }) => {
   return (
     <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-      <SessionProvider>
-      {children}
-      </SessionProvider>
-      
-      </ThemeProvider>
+      <SessionProvider>{children}</SessionProvider>
+    </ThemeProvider>
   )
 }
 
-export default Provider
+export default Providers

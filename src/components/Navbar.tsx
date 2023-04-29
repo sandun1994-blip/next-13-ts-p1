@@ -4,12 +4,14 @@ import React from 'react'
 import { buttonVariants } from './ui/Button'
 import SignInButton from './SignInButton'
 import SignOutButton from './SignOutButton'
+import ThemeToggle from './ThemeToggle'
+import { authOptions } from '@/lib/auth'
 
 type Props = {}
 
 const Navbar = async (props: Props): Promise<JSX.Element> => {
 
-    const session = await getServerSession()
+    const session = await getServerSession(authOptions)
 
     return (
         <div className='fixed backdrop-blur-sm bg-white/75 dark:bg-slate-900 z-50 top-0 left-0 right-0 h-20 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-between'>
@@ -18,14 +20,14 @@ const Navbar = async (props: Props): Promise<JSX.Element> => {
                     Text Similarity 1.0</Link>
                 <div className='md:hidden'>
 
-                    {/* <ThemeToggle/> */}
+                    <ThemeToggle/>
 
                 </div>
 
                 <div className='hidden md:flex gap-4'>
-                    {/* <ThemeToggle/> */}
+                    <ThemeToggle/>
                     <Link href={'/documentation'} className={buttonVariants({ variant: 'ghost' })}>
-                        Documentation</Link>ttt
+                        Documentation</Link>
 
                     {session ? (
                         <>
