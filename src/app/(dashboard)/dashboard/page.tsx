@@ -1,3 +1,5 @@
+import ApiDashboard from '@/components/ApiDashboard'
+import RequestApiKey from '@/components/RequestApiKey'
 import { authOptions } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { getServerSession } from 'next-auth'
@@ -19,12 +21,12 @@ const apiKey =await db.apiKey.findFirst({
   where:{userId:user.user.id}
 })
 
-console.log(user);
+
 
 
   return (
     <div className='max-w-7xl mx-auto mt-16'>
-      {/* {apiKey?<ApiDashboard/>:<RequestApiKey/>} */}
+      {apiKey?<ApiDashboard/>:<RequestApiKey/>}
     </div>
   )
 }

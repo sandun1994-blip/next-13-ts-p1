@@ -45,6 +45,7 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks: {
         async session({ token, session }) {
+console.log('one');
 
             if (token) {
 
@@ -59,6 +60,7 @@ export const authOptions: NextAuthOptions = {
 
         },
         async jwt({ token, user }) {
+console.log('two');
 
             const dbUser = await db.user.findFirst({
                 where: {
@@ -81,6 +83,7 @@ export const authOptions: NextAuthOptions = {
 
         },
         redirect(){
+console.log('three');
 
             return '/dashboard'
         }

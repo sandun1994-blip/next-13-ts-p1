@@ -9,6 +9,7 @@ import Code from './Code'
 import { nodejs, python } from '@/helpers/documentation-code'
 
 const DocumentationTabs: FC = () => {
+
   return (
     <Tabs defaultValue='nodejs' className='max-w-2xl w-full'>
       <TabsList>
